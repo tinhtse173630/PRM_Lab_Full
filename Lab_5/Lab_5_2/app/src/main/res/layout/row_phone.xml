@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingBottom="16dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp" tools:srcCompat="@tools:sample/avatars" android:id="@+id/imagePhone"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" android:layout_marginStart="16dp"/>
+    <EditText
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Phone Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvPhoneName"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintStart_toEndOf="@+id/imagePhone"
+            android:layout_marginStart="20dp"/>
+    <TextView
+            android:textColor="#2C2C2C"
+            android:textSize="16sp"
+            android:text="Brand: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvBrandLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvPhoneName"
+            android:layout_marginTop="15dp" app:layout_constraintStart_toStartOf="@+id/tvPhoneName"/>
+
+    <EditText
+        android:id="@+id/tvBrandValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Brand Value"
+        android:textColor="#2C2C2C"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBrandLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvBrandLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvBrandLabel"
+        app:layout_constraintVertical_bias="0.714" />
+
+    <EditText
+            android:padding="5dp"
+            android:background="@color/teal_700"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvPrice"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- In row_phone.xml -->
+
+    <TextView
+        android:id="@+id/tvYearLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Release Year: "
+        android:textColor="#2C2C2C"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tvBrandLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvBrandLabel" />
+
+    <EditText
+        android:id="@+id/tvYearValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Year"
+        android:textColor="#2C2C2C"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvYearLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvYearLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvYearLabel"
+        app:layout_constraintVertical_bias="0.761" />
+
+    <Button
+        android:id="@+id/btnAddPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="152dp"
+        android:text="Add Phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnEditPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:text="Edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYearValue" />
+
+    <Button
+        android:id="@+id/btnDeletePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="16dp"
+        android:text="Delete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYearLabel" />
+</androidx.constraintlayout.widget.ConstraintLayout>
