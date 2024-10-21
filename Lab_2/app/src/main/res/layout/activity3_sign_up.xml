@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/Tview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="68dp"
+        android:text="Sign Up Form"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Etext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Tview1" />
+
+    <EditText
+        android:id="@+id/Etext2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/Etext1"
+        app:layout_constraintTop_toBottomOf="@+id/Etext1" />
+
+    <EditText
+        android:id="@+id/Etext3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/Etext2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Etext2"
+        app:layout_constraintTop_toBottomOf="@+id/Etext2" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:text="SIGN Up"
+        app:layout_constraintEnd_toEndOf="@+id/Tview2"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toStartOf="@+id/Tview2"
+        app:layout_constraintTop_toBottomOf="@+id/Tview2" />
+
+    <TextView
+        android:id="@+id/Tview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="------Or-----"
+        app:layout_constraintEnd_toEndOf="@+id/Tviewcreate"
+        app:layout_constraintStart_toStartOf="@+id/Tviewcreate"
+        app:layout_constraintTop_toBottomOf="@+id/Tviewcreate" />
+
+    <TextView
+        android:id="@+id/Tviewcreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:padding="16dp"
+        android:text="Already Account ? Sign In"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/Etext3"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/Etext3"
+        app:layout_constraintTop_toBottomOf="@+id/Etext3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
