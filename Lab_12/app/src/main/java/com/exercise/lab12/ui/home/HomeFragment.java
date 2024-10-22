@@ -16,25 +16,26 @@ import android.view.ViewGroup;
 import com.exercise.lab12.R;
 import com.exercise.lab12.databinding.FragmentHomeBinding;
 import com.exercise.lab12.ui.viewmodel.SharedViewModel;
-
+// Fragment for the Home screen
 public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentHomeBinding binding; // Binding for UI elements
 
-    private SharedViewModel sharedViewModel;
+    private SharedViewModel sharedViewModel; // ViewModel for sharing data
 
     public static HomeFragment newInstance() {
-        return new HomeFragment();
+        return new HomeFragment(); // Create a new instance of this fragment
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        binding = FragmentHomeBinding.inflate(inflater, container, false); // Inflate the layout for this fragment
+        View root = binding.getRoot(); // Get the root view
 
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class); // Get shared ViewModel
 
+        // Observe shared data and update the UI when data changes
         sharedViewModel.getSharedData().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer data) {
@@ -42,13 +43,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        return root;
+        return root; // Return the root view
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        binding = null; // Clean up the binding when the view is destroyed
     }
 
 }
