@@ -1,4 +1,4 @@
-package com.example.lab10;
+package com.exercise.lab10;
 
 import android.os.Bundle;
 
