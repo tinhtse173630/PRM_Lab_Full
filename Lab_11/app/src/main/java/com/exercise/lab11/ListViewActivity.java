@@ -23,12 +23,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// Activity displaying a list of trainees
 public class ListViewActivity extends AppCompatActivity implements View.OnClickListener{
-    TraineeService traineeService;
-    ListView lvTrainee;
-    TraineeAdapter adapter;
-    List<Trainee> traineeList = new ArrayList<>();
-    Trainee selectedTrainee;
+    TraineeService traineeService; // Service to interact with API
+    ListView lvTrainee; // ListView to display trainees
+    TraineeAdapter adapter; // Adapter to populate ListView with trainee data
+    List<Trainee> traineeList = new ArrayList<>(); // Holds the trainee data
+    Trainee selectedTrainee; // Stores the currently selected trainee
 
     EditText edId, edName, edPhone, edEmail, edGender;
     Button btnUpdate, btnRemove, btnReturn;
@@ -36,31 +37,33 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.other);
+        setContentView(R.layout.other); // Set the layout
 
-        lvTrainee = (ListView) findViewById(R.id.listStudent);
-        traineeService = TraineeRepository.getTraineeService();
+        // Linking UI elements with the code
+        lvTrainee = findViewById(R.id.listStudent);
+        traineeService = TraineeRepository.getTraineeService(); // Get service from repository
 
-        edId = (EditText) findViewById(R.id.textViewID);
-        edName = (EditText) findViewById(R.id.textViewName);
-        edPhone = (EditText) findViewById(R.id.textViewPhone);
-        edEmail = (EditText) findViewById(R.id.textViewEmail);
-        edGender = (EditText) findViewById(R.id.textViewGender);
+        edId     = findViewById(R.id.textViewID);
+        edName   = findViewById(R.id.textViewName);
+        edPhone  = findViewById(R.id.textViewPhone);
+        edEmail  = findViewById(R.id.textViewEmail);
+        edGender = findViewById(R.id.textViewGender);
 
-        btnUpdate = (Button) findViewById(R.id.buttonEdit);
-        btnRemove = (Button) findViewById(R.id.buttonDelete);
-        btnReturn = (Button) findViewById(R.id.buttonReturn);
+        btnUpdate = findViewById(R.id.buttonEdit);
+        btnRemove = findViewById(R.id.buttonDelete);
+        btnReturn = findViewById(R.id.buttonReturn);
 
         btnUpdate.setOnClickListener(this);
         btnRemove.setOnClickListener(this);
         btnReturn.setOnClickListener(this);
 
-        listAllTrainees();
+        listAllTrainees();  // Load the list of trainees
     }
 
+    // Method to list all trainees by calling API
     private void listAllTrainees() {
         try {
-            Call<Trainee[]> call = traineeService.getAllTrainees();
+            Call<Trainee[]> call = traineeService.getAllTrainees(); // API call to get all trainees
 
             call.enqueue(new Callback<Trainee[]>() {
                 @Override
@@ -71,12 +74,13 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
                         return;
                     }
 
-                    Trainee[] trainees = response.body();
+                    Trainee[] trainees = response.body(); // Get the response body
                     if (trainees == null) {
                         Log.d("API Error", "Empty response");
                         return;
                     }
 
+                    // Add trainees to list and update UI with adapter
                     traineeList.addAll(Arrays.asList(trainees));
                     adapter = new TraineeAdapter(ListViewActivity.this, traineeList, trainee -> loadTraineeInfo(trainee));
                     lvTrainee.setAdapter(adapter);
@@ -94,6 +98,7 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    // Loads selected trainee details into the input fields
     private void loadTraineeInfo(Trainee trainee) {
         selectedTrainee = trainee;
         edId.setText(String.valueOf(trainee.getId()));
@@ -103,6 +108,7 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
         edGender.setText(trainee.getGender());
     }
 
+    // Handles button clicks
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.buttonEdit) {
@@ -114,6 +120,7 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    // Update selected trainee's info
     private void updateTrainee() {
         String name = edName.getText().toString();
         String phone = edPhone.getText().toString();
@@ -121,6 +128,7 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
         String gender = edGender.getText().toString();
 
         if (selectedTrainee != null) {
+            // Set new details to trainee
             selectedTrainee.setName(name);
             selectedTrainee.setPhone(phone);
             selectedTrainee.setEmail(email);
@@ -135,7 +143,7 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
 
                         adapter.notifyDataSetChanged();
 
-                        clearFields();
+                        clearFields(); // Clear the input fields after update
                     }
                 }
 
@@ -147,6 +155,7 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    // Remove the selected trainee
     private void removeTrainee() {
         if (selectedTrainee != null) {
             Call<Void> call = traineeService.deleteTrainees(selectedTrainee.getId());
@@ -155,9 +164,9 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
                         traineeList.remove(selectedTrainee); // Remove from local list
-                        adapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged(); // Update the UI
                         Toast.makeText(ListViewActivity.this, "Remove successful", Toast.LENGTH_LONG).show();
-                        clearFields();
+                        clearFields(); // Clear the input fields after remove
                     }
                 }
 
@@ -169,6 +178,7 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    // Clears all the input fields
     private void clearFields() {
         edId.setText("none");
         edName.setText("None");
@@ -178,10 +188,11 @@ public class ListViewActivity extends AppCompatActivity implements View.OnClickL
         selectedTrainee = null;
     }
 
+    // Returns to the main activity screen
     private void returnToMainActivity() {
         Intent intent = new Intent(ListViewActivity.this, MainActivity.class);
         startActivity(intent);
-        finish();
+        finish(); // Finish this activity
     }
 
     @Override

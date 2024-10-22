@@ -13,8 +13,9 @@ import com.exercise.lab11.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentFirstBinding binding; // Used to bind UI elements to code
 
+    // Inflate the view and return the root layout
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -26,6 +27,7 @@ public class FirstFragment extends Fragment {
 
     }
 
+    // Called after view is created, setting click listener for button
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -35,6 +37,7 @@ public class FirstFragment extends Fragment {
         );
     }
 
+    // Called when the view is destroyed, cleaning up bindings
     @Override
     public void onDestroyView() {
         super.onDestroyView();

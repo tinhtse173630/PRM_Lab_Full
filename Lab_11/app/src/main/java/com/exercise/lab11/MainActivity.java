@@ -21,7 +21,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TraineeService traineeService;
+    TraineeService traineeService; // Service to interact with the API
     EditText edName, edEmail, edPhone, edGender;
     Button btnSave, btnGetFull;
 
@@ -38,25 +38,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSave = (Button) findViewById(R.id.buttonSaveData);
         btnGetFull = (Button) findViewById(R.id.buttonFullList);
 
+        // Set click listeners for the buttons
         btnSave.setOnClickListener(this);
         btnGetFull.setOnClickListener(this);
 
-        traineeService = TraineeRepository.getTraineeService();
+        traineeService = TraineeRepository.getTraineeService(); // Get service to interact with API
     }
 
+    // Handle button clicks
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.buttonSaveData) {
-            save();
+            save(); // Save trainee data
         } else if (view.getId() == R.id.buttonFullList) {
-            directToFullList();
+            directToFullList(); // Go to the full list of trainees
         }
     }
 
+    // Redirect to ListViewActivity to show the list of trainees
     private void directToFullList() {
         Intent intent = new Intent(MainActivity.this, ListViewActivity.class);
-        startActivity(intent);
-        finish();
+        startActivity(intent); // Start the ListViewActivity
+        finish(); // Finish this activity
     }
 
     @Override
@@ -64,22 +67,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onPointerCaptureChanged(hasCapture);
     }
 
+    // Method to save the trainee data
     private void save() {
+        // Get input values from the fields
         String name = edName.getText().toString();
         String email = edEmail.getText().toString();
         String phone = edPhone.getText().toString();
         String gender = edGender.getText().toString();
 
-        Trainee trainee = new Trainee(name, email, phone, gender);
+        Trainee trainee = new Trainee(name, email, phone, gender); // Create a new trainee object with the input values
 
         try {
+            // API call to create a new trainee
             Call<Trainee> call = traineeService.createTrainees(trainee);
             call.enqueue(new Callback<Trainee>() {
                 @Override
                 public void onResponse(Call<Trainee> call, Response<Trainee> response) {
                     if(response.body() != null) {
                         Toast.makeText(MainActivity.this, "Save successfully !", Toast.LENGTH_LONG).show();
-                        clearFields();
+                        clearFields(); // Clear the input fields after saving
                     }
                 }
 
@@ -94,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // Clear the input fields after saving or returning to the main screen
     private void clearFields() {
         edName.setText("");
         edPhone.setText("");
