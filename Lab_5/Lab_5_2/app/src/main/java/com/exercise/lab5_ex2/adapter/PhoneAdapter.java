@@ -138,15 +138,18 @@ public class PhoneAdapter extends RecyclerView.Adapter<PhoneAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imagePhone = itemView.findViewById(R.id.imagePhoneAdd);
-            tvPhoneName = itemView.findViewById(R.id.tvPhoneNameAdd);
-            tvBrandValue = itemView.findViewById(R.id.tvBrandValueAdd);
-            tvYearValue = itemView.findViewById(R.id.tvYearValueAdd);
+            imagePhone = itemView.findViewById(R.id.imagePhone);
+            tvPhoneName = itemView.findViewById(R.id.tvPhoneName);
+            tvBrandValue = itemView.findViewById(R.id.tvBrandValue);
+            tvYearValue = itemView.findViewById(R.id.tvYearValue);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-            tvPhoneName = itemView.findViewById(R.id.tvPhoneNameAdd);
-            tvBrandValue = itemView.findViewById(R.id.tvBrandValueAdd);
-            tvYearValue = itemView.findViewById(R.id.tvYearValueAdd);
-            tvPrice = itemView.findViewById(R.id.tvPriceAdd);
+
+//            imagePhone = itemView.findViewById(R.id.imagePhoneAdd);
+//            tvPhoneName = itemView.findViewById(R.id.tvPhoneNameAdd);
+//            tvBrandValue = itemView.findViewById(R.id.tvBrandValueAdd);
+//            tvYearValue = itemView.findViewById(R.id.tvYearValueAdd);
+//            tvPrice = itemView.findViewById(R.id.tvPrice);
+
             btnAddPhone = itemView.findViewById(R.id.btnAddPhone);
             btnEditPhone = itemView.findViewById(R.id.btnEditPhone);
             btnDeletePhone = itemView.findViewById(R.id.btnDeletePhone);
