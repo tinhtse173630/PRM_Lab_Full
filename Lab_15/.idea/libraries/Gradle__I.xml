@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: I" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-4/ef0eaa0769547f6bb8f08fb86ac30f2f/transformed/jetified-zpdk-release-v3.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-4/ef0eaa0769547f6bb8f08fb86ac30f2f/transformed/jetified-zpdk-release-v3.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
