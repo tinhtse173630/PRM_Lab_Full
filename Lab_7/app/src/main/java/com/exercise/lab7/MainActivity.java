@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
  private  static  final int REQUEST_PERMISSION_CODE = 10;
  Button btn_requestPermission , btn_openSetting;
+ ImageButton btn_sms;
  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         btn_openSetting = findViewById(R.id.btn_open_settings_permission);
         btn_requestPermission = findViewById(R.id.btn_request_permission);
+        btn_sms = findViewById(R.id.button_sms);
+
+         // Openn Sms Activity
+        btn_sms.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)) );
+
+
 
         // Request the permissions location system
         btn_requestPermission.setOnClickListener(new View.OnClickListener() {
