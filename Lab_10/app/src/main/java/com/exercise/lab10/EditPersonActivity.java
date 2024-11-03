@@ -34,7 +34,7 @@ public class EditPersonActivity extends AppCompatActivity {
         // Enable "back" navigation in the toolbar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Edit");         // Set toolbar title
+            getSupportActionBar().setTitle("Edit / Add");         // Set toolbar title
         }
 
         initViews(); // Initialize the views

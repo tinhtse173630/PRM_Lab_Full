@@ -36,11 +36,11 @@
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/bluegreen"
+        android:padding="16dp"
         android:text="SAVE"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:backgroundTint="@color/yellow"
-        android:layout_marginTop="32dp"
-        android:padding="16dp" />
+        android:textStyle="bold" />
 
 </LinearLayout>

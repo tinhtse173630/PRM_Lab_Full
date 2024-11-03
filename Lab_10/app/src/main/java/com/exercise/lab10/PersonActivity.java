@@ -32,7 +32,7 @@ public class PersonActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            getSupportActionBar().setTitle("Home");
+            getSupportActionBar().setTitle("Lab 10 - Room Database");
         }
 
         fabAdd = findViewById(R.id.fab);
