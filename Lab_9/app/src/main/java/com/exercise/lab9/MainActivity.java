@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Insert data
         // Uncomment below lines if you want to insert data only once
-//         database.QueryData("INSERT INTO CongViec VALUES (null, 'Project Android')");
-//         database.QueryData("INSERT INTO CongViec VALUES (null, 'Design app')");
+         database.QueryData("INSERT INTO CongViec VALUES (null, 'Project Android')");
+         database.QueryData("INSERT INTO CongViec VALUES (null, 'Design app')");
 
         // Select data
         GetDataCongViec(); // Load the task data from the database and display it in the ListView
